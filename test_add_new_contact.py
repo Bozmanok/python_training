@@ -15,11 +15,13 @@ class TestAddNewContact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.create_new_contact(wd, Contact(firstname="First test", middlename="Middle test", lastname="Last test",
-                           nickname="Nick test", title="Title test", company="Company test", address="Address test",
-                           home="12345", mobile="67890", work="54321", fax="09876", email="test@test.tu",
-                           email2="test2@test.tu", email3="test3@test.tu", homepage="www.test.tu", bday="15",
-                           bmonth="January", byear="1990", aday="15", amonth="January", ayear="1990", new_group="[none]",
-                           address2="Address test", phone2="34567", notes="Notes test"))
+                                            path_to_photo="C:\\Users\\Asus\\Desktop\\test_image.jpg",
+                                            nickname="Nick test", title="Title test", company="Company test",
+                                            address="Address test", home="12345", mobile="67890", work="54321",
+                                            fax="09876", email="test@test.tu", email2="test2@test.tu",
+                                            email3="test3@test.tu", homepage="www.test.tu", bday="15", bmonth="January",
+                                            byear="1990", aday="15", amonth="January", ayear="1990", new_group="[none]",
+                                            address2="Address test", phone2="34567", notes="Notes test"))
         self.return_to_list_contacts_page(wd)
         self.logout(wd)
 
@@ -27,12 +29,11 @@ class TestAddNewContact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.create_new_contact(wd, Contact(firstname="", middlename="", lastname="",
-                           nickname="", title="", company="", address="",
-                           home="", mobile="", work="", fax="", email="",
-                           email2="", email3="", homepage="", bday="",
-                           bmonth="-", byear="", aday="", amonth="-", ayear="", new_group="",
-                           address2="", phone2="", notes=""))
+        self.create_new_contact(wd, Contact(firstname="", middlename="", lastname="", path_to_photo="", nickname="",
+                                            title="", company="", address="", home="", mobile="", work="", fax="",
+                                            email="", email2="", email3="", homepage="", bday="", bmonth="-", byear="",
+                                            aday="", amonth="-", ayear="", new_group="", address2="", phone2="",
+                                            notes=""))
         self.return_to_list_contacts_page(wd)
         self.logout(wd)
 
@@ -55,6 +56,8 @@ class TestAddNewContact(unittest.TestCase):
         wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
+        if contact.path_to_photo != "":
+            wd.find_element_by_name("photo").send_keys(contact.path_to_photo)
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
         wd.find_element_by_name("title").send_keys(contact.title)
