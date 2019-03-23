@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a8a24e1b-4c6a-4603-af62-19389d69ead9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_add_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_add_group.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +12,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_add_group.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -34,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="918">
@@ -297,13 +296,17 @@
       <option name="project" value="LOCAL" />
       <updated>1553350849088</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Реализована фикстура и переведены тесты с unittest на py.test для test_add_group">
+      <created>1553355747462</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1553355747462</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 28m 44s.xml">
-      <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 29m 33s.xml">
       <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
     </history-entry>
@@ -330,6 +333,9 @@
     </history-entry>
     <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.23 at 17h 20m 30s.xml">
       <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_add_group_py - 2019.03.23 at 18h 38m 33s.xml">
+      <configuration name="pytest in test_add_group.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -373,7 +379,8 @@
     <MESSAGE value="Добавлен метод загрузки фотографии" />
     <MESSAGE value="Вынесены лишние методы из тестов в другие методы" />
     <MESSAGE value="Упрощён тестовый метод" />
-    <option name="LAST_COMMIT_MESSAGE" value="Упрощён тестовый метод" />
+    <MESSAGE value="Реализована фикстура и переведены тесты с unittest на py.test для test_add_group" />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализована фикстура и переведены тесты с unittest на py.test для test_add_group" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -400,13 +407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_add_new_contact.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -421,6 +421,13 @@
           <folding>
             <element signature="e#25#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
