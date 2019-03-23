@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8a24e1b-4c6a-4603-af62-19389d69ead9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_add_new_contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_add_new_contact.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_add_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_add_group.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_add_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="238">
+              <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
               <folding>
                 <element signature="e#24#54#0" expanded="true" />
               </folding>
@@ -26,14 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_add_new_contact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-              <folding>
-                <element signature="e#26#56#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="31" column="101" selection-start-line="31" selection-start-column="101" selection-end-line="31" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -73,9 +69,9 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/group.py" />
-        <option value="$PROJECT_DIR$/test_add_group.py" />
         <option value="$PROJECT_DIR$/contact.py" />
         <option value="$PROJECT_DIR$/test_add_new_contact.py" />
+        <option value="$PROJECT_DIR$/test_add_group.py" />
       </list>
     </option>
   </component>
@@ -93,6 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,7 +101,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,13 +265,17 @@
       <option name="project" value="LOCAL" />
       <updated>1552826091340</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Добавлен метод загрузки фотографии">
+      <created>1553024684552</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1553024684552</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 07m 21s.xml">
-      <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 12m 09s.xml">
       <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
     </history-entry>
@@ -303,17 +303,19 @@
     <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 35m 27s.xml">
       <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="pytest_in_test_add_new_contact_py - 2019.03.19 at 22h 43m 25s.xml">
+      <configuration name="pytest in test_add_new_contact.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18836749" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36685553" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -342,7 +344,8 @@
     <MESSAGE value="Выделены вспомогательные методы в сценарии создания нового контакта" />
     <MESSAGE value="Реализована передача параметров в методы. Выделен вспомогательный класс для сценария создания нового контакта" />
     <MESSAGE value="Добавлен сценарий создания пустого нового контакта" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен сценарий создания пустого нового контакта" />
+    <MESSAGE value="Добавлен метод загрузки фотографии" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен метод загрузки фотографии" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -355,13 +358,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_add_group.py">
+    <entry file="file://$PROJECT_DIR$/contact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding>
-            <element signature="e#24#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -372,19 +372,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contact.py">
+    <entry file="file://$PROJECT_DIR$/test_add_new_contact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
+        <state relative-caret-position="221">
+          <caret line="31" column="101" selection-start-line="31" selection-start-column="101" selection-end-line="31" selection-end-column="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_add_new_contact.py">
+    <entry file="file://$PROJECT_DIR$/test_add_group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+        <state relative-caret-position="238">
+          <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
           <folding>
-            <element signature="e#26#56#0" expanded="true" />
+            <element signature="e#24#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
