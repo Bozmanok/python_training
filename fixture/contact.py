@@ -10,6 +10,32 @@ class ContactHelper:
         wd = self.app.wd
         # init new contact creation
         wd.find_element_by_link_text("add new").click()
+        self.fill_form_contact(contact)
+        # create new contact
+        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        self.return_to_list_contacts_page()
+
+    def update_first_contact(self, contact):
+        wd = self.app.wd
+        # edit first contact
+        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        self.fill_form_contact(contact)
+        # submit contact update
+        wd.find_element_by_name("update").click()
+        self.return_to_list_contacts_page()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        # return to page contacts
+        wd.find_element_by_link_text("home").click()
+
+    def fill_form_contact(self, contact):
+        wd = self.app.wd
         # fill new contact main form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -73,9 +99,6 @@ class ContactHelper:
         wd.find_element_by_name("phone2").send_keys(contact.phone2)
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.notes)
-        # create new contact
-        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
-        self.return_to_list_contacts_page()
 
     def return_to_list_contacts_page(self):
         wd = self.app.wd

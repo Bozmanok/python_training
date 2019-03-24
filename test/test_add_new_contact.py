@@ -10,7 +10,7 @@ def test_add_new_contact(app):
                                address="Address test", home="12345", mobile="67890", work="54321",
                                fax="09876", email="test@test.tu", email2="test2@test.tu",
                                email3="test3@test.tu", homepage="www.test.tu", bday="15", bmonth="January",
-                               byear="1990", aday="15", amonth="January", ayear="1990", new_group="[none]",
+                               byear="1990", aday="30", amonth="September", ayear="2000", new_group="[none]",
                                address2="Address test", phone2="34567", notes="Notes test"))
     app.session.logout()
 
