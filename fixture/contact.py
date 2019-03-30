@@ -82,15 +82,13 @@ class ContactHelper:
         wd.find_element_by_name("byear").send_keys(contact.byear)
         wd.find_element_by_name("aday").click()
         Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
-        wd.find_element_by_xpath("(//option[@value='" + contact.aday + "'])[2]").click()
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
-        wd.find_element_by_xpath("(//option[@value='" + contact.amonth + "'])[2]").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(contact.ayear)
-        wd.find_element_by_name("new_group").click()
-        wd.find_element_by_xpath("//option[@value='" + contact.new_group + "']").click()
+        if contact.new_group != "":
+            self.select_group_for_contact(contact, wd)
         # fill new contact secondary form
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
@@ -99,6 +97,10 @@ class ContactHelper:
         wd.find_element_by_name("phone2").send_keys(contact.phone2)
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.notes)
+
+    def select_group_for_contact(self, contact, wd):
+        wd.find_element_by_name("new_group").click()
+        wd.find_element_by_xpath("//option[@value='" + contact.new_group + "']").click()
 
     def return_to_list_contacts_page(self):
         wd = self.app.wd
