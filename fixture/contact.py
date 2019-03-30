@@ -15,7 +15,7 @@ class ContactHelper:
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
         self.return_to_list_contacts_page()
 
-    def update_first_contact(self, contact):
+    def modify_first_contact(self, contact):
         wd = self.app.wd
         # edit first contact
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
