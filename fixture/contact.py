@@ -1,4 +1,5 @@
 from selenium.webdriver.support.select import Select
+from model.contact import Contact
 
 
 class ContactHelper:
@@ -40,6 +41,7 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         # return to page contacts
         wd.find_element_by_link_text("home").click()
+        wd.implicitly_wait(2)
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -101,3 +103,13 @@ class ContactHelper:
     def return_to_list_contacts_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home page").click()
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.open_contacts_page()
+        contacts = []
+        for element in wd.find_elements_by_name("entry"):
+            text = element.text
+            id = element.find_element_by_name("selected[]").get_attribute("value")
+            contacts.append(Contact(name=text, id=id))
+        return contacts
