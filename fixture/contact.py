@@ -27,7 +27,11 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contacts_page()
         # edit first contact
-        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        self.select_contact_by_index(index)
+        if index == 0:
+            wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        else:
+            wd.find_elements_by_xpath("//img[@alt='Edit']")[index+1].click()
         self.fill_contact_form(new_contact_data)
         # submit contact update
         wd.find_element_by_name("update").click()
@@ -54,11 +58,10 @@ class ContactHelper:
 
     def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_elements_by_name("selected[]")[index].click()
-
-    def select_first_contact(self):
-        wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        if index == 0:
+            wd.find_element_by_xpath("//td/input").click()
+        else:
+            wd.find_element_by_xpath("//tr[" + str(index+2) + "]/td/input").click()
 
     def fill_contact_form(self, contact):
         # fill new contact main form
