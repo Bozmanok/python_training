@@ -28,10 +28,10 @@ class ContactHelper:
         self.open_contacts_page()
         # edit first contact
         self.select_contact_by_index(index)
-        if index == 0:
+        if index == 1:
             wd.find_element_by_xpath("//img[@alt='Edit']").click()
         else:
-            wd.find_elements_by_xpath("//img[@alt='Edit']")[index+1].click()
+            wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         self.fill_contact_form(new_contact_data)
         # submit contact update
         wd.find_element_by_name("update").click()
@@ -58,7 +58,7 @@ class ContactHelper:
 
     def select_contact_by_index(self, index):
         wd = self.app.wd
-        if index == 0:
+        if index == 1:
             wd.find_element_by_xpath("//td/input").click()
         else:
             wd.find_element_by_xpath("//tr[" + str(index+2) + "]/td/input").click()
@@ -128,8 +128,8 @@ class ContactHelper:
             self.open_contacts_page()
             self.contact_cache = []
             for element in wd.find_elements_by_name("entry"):
-                first_name = element.find_element_by_name("selected[]").get_attribute("title"[0])
-                last_name = element.find_element_by_name("selected[]").get_attribute("title"[1])
+                first_name = element.find_elements_by_xpath("td")[2].text
+                last_name = element.find_elements_by_xpath("td")[1].text
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(firstname=first_name, lastname=last_name, id=id))
         return list(self.contact_cache)
