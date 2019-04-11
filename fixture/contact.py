@@ -28,10 +28,7 @@ class ContactHelper:
         self.open_contacts_page()
         # edit first contact
         self.select_contact_by_index(index)
-        if index == 1:
-            wd.find_element_by_xpath("//img[@alt='Edit']").click()
-        else:
-            wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         self.fill_contact_form(new_contact_data)
         # submit contact update
         wd.find_element_by_name("update").click()
