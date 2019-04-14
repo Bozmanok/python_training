@@ -58,7 +58,7 @@ class ContactHelper:
         if index == 1:
             wd.find_element_by_xpath("//td/input").click()
         else:
-            wd.find_element_by_xpath("//tr[" + str(index+2) + "]/td/input").click()
+            wd.find_element_by_xpath("//tr[%s]/td/input").click() % str(index+2)
 
     def fill_contact_form(self, contact):
         # fill new contact main form
