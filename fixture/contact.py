@@ -28,7 +28,7 @@ class ContactHelper:
         self.open_contacts_page()
         # edit first contact
         self.select_contact_by_index(index)
-        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        self.open_contact_to_edit_by_index(index)
         self.fill_contact_form(new_contact_data)
         # submit contact update
         wd.find_element_by_name("update").click()
@@ -58,7 +58,7 @@ class ContactHelper:
         if index == 1:
             wd.find_element_by_xpath("//td/input").click()
         else:
-            wd.find_element_by_xpath("//tr[%s]/td/input").click() % str(index+2)
+            wd.find_element_by_xpath("//tr[" + str(index+2) + "]/td/input").click()
 
     def fill_contact_form(self, contact):
         # fill new contact main form
@@ -130,3 +130,20 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(firstname=first_name, lastname=last_name, id=id))
         return list(self.contact_cache)
+
+    def open_contact_to_edit_by_index(self, index):
+        wd = self.app.wd
+        self.open_contacts_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[7]
+        cell.find_element_by_tag_name("a").click()
+
+    def open_contact_to_show_by_index(self, index):
+        wd = self.app.wd
+        self.open_contacts_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag_name("a").click()
+
+    def get_contact_info_from_edit_page(self, index):
+        self.open_contact_to_edit_by_index(index)
