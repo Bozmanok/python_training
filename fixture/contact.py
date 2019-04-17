@@ -180,3 +180,9 @@ class ContactHelper:
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
+
+    # def select_some_value(self, field_name):
+    #     wd = self.app.wd
+    #     values = wd.find_elements_by_name(field_name).get_attribute("value")
+    #     return Select(wd.find_element_by_name(field_name)).select_by_visible_text(range(values))
+
