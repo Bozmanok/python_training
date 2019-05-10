@@ -36,6 +36,18 @@ class ContactHelper:
         self.return_to_list_contacts_page()
         self.contact_cache = None
 
+    def modify_contact_by_id(self, id, new_contact_data):
+        wd = self.app.wd
+        self.open_contacts_page()
+        # edit first contact
+        self.select_contact_by_id(id)
+        self.open_contact_to_edit_by_id(id)
+        self.fill_contact_form(new_contact_data)
+        # submit contact update
+        wd.find_element_by_name("update").click()
+        self.return_to_list_contacts_page()
+        self.contact_cache = None
+
     def modify_first_contact(self, new_contact_data):
         self.modify_contact_by_index(0, new_contact_data)
 
@@ -43,6 +55,18 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contacts_page()
         self.select_contact_by_index(index)
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        # return to page contacts
+        wd.find_element_by_link_text("home").click()
+        wd.implicitly_wait(2)
+        self.contact_cache = None
+
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(id)
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
@@ -60,6 +84,10 @@ class ContactHelper:
             wd.find_element_by_xpath("//td/input").click()
         else:
             wd.find_element_by_xpath("//tr[" + str(index+2) + "]/td/input").click()
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
     def fill_contact_form(self, contact):
         # fill new contact main form
@@ -144,6 +172,11 @@ class ContactHelper:
         row = wd.find_elements_by_name("entry")[index]
         cell = row.find_elements_by_tag_name("td")[7]
         cell.find_element_by_tag_name("a").click()
+
+    def open_contact_to_edit_by_id(self, id):
+        wd = self.app.wd
+        self.open_contacts_page()
+        wd.find_element_by_css_selector("a[href='edit.php?id=%s']" % id).click()
 
     def open_contact_to_show_by_index(self, index):
         wd = self.app.wd
