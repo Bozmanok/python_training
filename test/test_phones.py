@@ -1,5 +1,4 @@
 from model.contact import Contact
-from random import randrange
 import re
 
 
@@ -9,17 +8,19 @@ def test_phones_on_home_page(app):
     assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_edit_page)
 
 
-def test_names_phones_emails_some_contact_on_home_page(app):
+def test_names_phones_emails_some_contact_on_home_page(app, db):
     if app.contact.count() == 0:
         app.contact.create(Contact(firstname="First test"))
-    contacts = app.contact.get_contact_list()
-    index = randrange(len(contacts))
-    contact_from_home_page = app.contact.get_contact_list()[index]
-    contact_from_edit_page = app.contact.get_contact_info_from_edit_page(index)
-    assert contact_from_home_page.firstname == contact_from_edit_page.firstname
-    assert contact_from_home_page.lastname == contact_from_edit_page.lastname
-    assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_edit_page)
-    assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_edit_page)
+    contacts_home = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    contacts_bd = sorted(db.get_contact_list(), key=Contact.id_or_max)
+    for contact in range(len(contacts_home)):
+        index = contact
+        contact_from_home_page = contacts_home[index]
+        contact_from_bd = contacts_bd[index]
+        assert contact_from_home_page.firstname == contact_from_bd.firstname
+        assert contact_from_home_page.lastname == contact_from_bd.lastname
+        assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_bd)
+        assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_bd)
 
 
 def test_phones_on_contact_view_page(app):
@@ -33,7 +34,7 @@ def test_phones_on_contact_view_page(app):
 
 
 def clear(s):
-    return re.sub("[() -]", "", s)
+    return re.sub("[()-.]", "", s)
 
 
 def merge_phones_like_on_home_page(contact):
