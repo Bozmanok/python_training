@@ -24,6 +24,23 @@ class ContactHelper:
         self.return_to_list_contacts_page()
         self.contact_cache = None
 
+    def add_contact_in_group(self, contact_id, group_name):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(contact_id)
+        self.change_select_field_value("to_group", group_name)
+        wd.find_element_by_name("add").click()
+        self.return_group_page_with_contacts(group_name)
+        self.contact_cache = None
+
+    def del_contact_in_group(self, contact_id, group_id, group_name):
+        wd = self.app.wd
+        self.open_group_page_with_contacts(group_id)
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("remove").click()
+        self.return_group_page_with_contacts(group_name)
+        self.contact_cache = None
+
     def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.open_contacts_page()
@@ -146,6 +163,14 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("home page").click()
 
+    def return_group_page_with_contacts(self, group_name):
+        wd = self.app.wd
+        wd.find_element_by_link_text("group page \"%s\"" % group_name).click()
+
+    def open_group_page_with_contacts(self, group_id):
+        wd = self.app.wd
+        wd.get("http://localhost/addressbook/?group=%s" % group_id)
+
     contact_cache = None
 
     def get_contact_list(self):
@@ -163,7 +188,19 @@ class ContactHelper:
                 self.contact_cache.append(Contact(firstname=first_name, lastname=last_name, id=id,
                                                   all_phones_from_home_page=all_phones,
                                                   all_emails_from_home_page=all_emails))
+        return list(self.contact_cache)
 
+    def get_contacts_list_with_group_from_page(self, group_id):
+        if self.contact_cache is None:
+            wd = self.app.wd
+            self.open_group_page_with_contacts(group_id)
+            self.contact_cache = []
+            for row in wd.find_elements_by_name("entry"):
+                cells = row.find_elements_by_tag_name("td")
+                first_name = cells[2].text
+                last_name = cells[1].text
+                id = cells[0].find_element_by_tag_name("input").get_attribute("value")
+                self.contact_cache.append(Contact(firstname=first_name, lastname=last_name, id=id))
         return list(self.contact_cache)
 
     def open_contact_to_edit_by_index(self, index):
