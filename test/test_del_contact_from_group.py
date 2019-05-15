@@ -16,7 +16,9 @@ def test_del_contact_in_group(app):
     group = random.choice(groups)
     if len(orm.get_contacts_in_group(group)) == 0:
         app.contact.add_contact_in_group(contact.id, group.name)
+    old_contacts_in_group = orm.get_contacts_in_group(group)
     app.contact.del_contact_in_group(contact.id, group.id, group.name)
-    contacts_page = app.contact.get_contacts_list_with_group_from_page(group.id)
-    contacts_db = orm.get_contacts_in_group(group)
-    assert sorted(contacts_page, key=Contact.id_or_max) == sorted(contacts_db, key=Contact.id_or_max)
+    new_contacts_in_group = orm.get_contacts_in_group(group)
+    assert len(old_contacts_in_group) - 1 == len(new_contacts_in_group)
+    old_contacts_in_group.remove(contact)
+    assert sorted(old_contacts_in_group, key=Contact.id_or_max) == sorted(new_contacts_in_group, key=Contact.id_or_max)
